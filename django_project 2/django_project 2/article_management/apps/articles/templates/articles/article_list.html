@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Article List</h2>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for article in articles %}
+        <tr>
+          <td>{{ article.title }}</td>
+          <td>{{ article.status }}</td>
+          <td>
+            <a href="{% url 'articles:edit_article' article.id %}">Edit</a> | 
+            {% if article.status == 'Draft' %}
+              <a href="{% url 'articles:approve_article' article.id %}">Approve</a> | 
+              <a href="{% url 'articles:reject_article' article.id %}">Reject</a>
+            {% endif %}
+            {% if article.status == 'Review' %}
+              <a href="{% url 'articles:publish_article' article.id %}">Publish</a>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

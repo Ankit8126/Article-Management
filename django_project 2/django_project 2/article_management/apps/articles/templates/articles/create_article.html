@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Submit Article (Step 1)</h2>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="form-group">
+      <label for="title">Title:</label>
+      {{ form_page1.title }}
+    </div>
+    
+    <div class="form-group">
+      <label for="subtitle">Subtitle:</label>
+      {{ form_page1.subtitle }}
+    </div>
+    
+    <div class="form-group">
+      <label for="content">Content:</label>
+      {{ form_page1.content }}
+    </div>
+    
+    <div class="form-group">
+      <label for="author_name">Author Name:</label>
+      {{ form_page1.author_name }}
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email Address:</label>
+      {{ form_page1.email }}
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Next</button>
+  </form>
+{% endblock %}

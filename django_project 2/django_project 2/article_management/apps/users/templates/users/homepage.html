@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Welcome to the Article Management System</h1>
+    <p>Please <a href="{% url 'users:login' %}">log in</a> or <a href="{% url 'users:register' %}">register</a> to access the system.</p>
+</div>
+{% endblock %}
